@@ -1,0 +1,28 @@
+pipeline{
+    agent any
+    environment {
+        INSTAGRAM_DB = "@its.dp"
+    }
+    stages{
+        stage ("Saludo 2"){
+        steps {
+                echo "Hola desde la clase 6"
+            }
+        }
+        stage ("Imprimir variable de entorno"){
+        steps {
+                echo "Hola mi instagram es: ${env.INSTAGRAM_DB}"
+                echo "Hola mi instagram es: ${INSTAGRAM_DB}"
+                //EL sh es una funcion shell que entra a la maquina vitual, en este caso es la consoal de windows entonces no tiene mucho sentido
+                //sh "echo 'hola-mundo'"
+            }
+        }
+        stage ("IMPRIMIR VARIABLE DE ENTORNO DEFINIA EN SYS"){
+        steps {
+                echo "Variable de entorno ${INSTAGRAM}"
+                //Cuando se hace un SH y se necesita una variable de netorno se necesitan 3 comillas
+                //sh """Variable de entorno ${INSTAGRAM}"""
+            }
+        }
+    }
+}
